@@ -5,7 +5,7 @@ import java.util.*;
 
 public class CSVWriter {
     private final BufferedWriter writer;
-    private final DecimalFormat decimalFormater = new DecimalFormat("#.####");
+    private final DecimalFormat decimalFormater = new DecimalFormat("#.#####");
 
     CSVWriter(BufferedWriter writer) {
         this.writer = writer;
@@ -36,7 +36,7 @@ public class CSVWriter {
         var row = new StringJoiner(",");
         row.add(word);
         row.add(count.toString());
-        row.add(decimalFormater.format(freq));
+        row.add(decimalFormater.format(freq) + "%");
 
         return row.toString();
     }
