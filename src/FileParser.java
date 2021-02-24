@@ -6,7 +6,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class FileParser {
-    private static final Pattern splitPattern = Pattern.compile("\\W+");
+    // Regex is alternative to \W+ for all unicode chars
+    private static final Pattern splitPattern = Pattern.compile("[^\\p{L}\\p{Nd}]+");
 
     public static WordsFreqMap getWordsFreqMap(BufferedReader reader) throws IOException {
         var wordsFreqMap = new WordsFreqMap();
